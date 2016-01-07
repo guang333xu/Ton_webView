@@ -1,25 +1,112 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="25e-NV-HBS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZg-77-AF1">
+                                <rect key="frame" x="118" y="261.5" width="85" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="JX9-Az-LaJ"/>
+                                    <constraint firstAttribute="width" constant="85" id="P2F-LY-jxy"/>
+                                </constraints>
+                                <state key="normal" title="内嵌浏览器"/>
+                                <connections>
+                                    <action selector="clickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRH-xy-gDs"/>
+                                    <segue destination="PGD-t5-tP0" kind="push" id="r8N-oH-kK2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WZg-77-AF1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uv1-GH-Yq1"/>
+                            <constraint firstItem="WZg-77-AF1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pZq-De-xUK"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4WP-Qv-ztQ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="922.5" y="949"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="oxP-7E-p8I">
+            <objects>
+                <viewController id="PGD-t5-tP0" customClass="TOWebViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XD8-n1-qTe">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Pwh-QU-T5o">
+                            <rect key="frame" x="45" y="7" width="217" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="searchWithTextField:" destination="PGD-t5-tP0" eventType="editingDidEndOnExit" id="Mfz-5q-xhO"/>
+                            </connections>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="1bJ-a8-oob">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="09J-7Y-Dux">
+                                <rect key="frame" x="268" y="7" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="搜索"/>
+                                <connections>
+                                    <action selector="searchButton:" destination="PGD-t5-tP0" eventType="touchUpInside" id="cE9-C2-DF5"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Tom-2H-qK3" id="5rO-YG-xTe"/>
+                        <outlet property="searchTextField" destination="Pwh-QU-T5o" id="IGO-yd-J5e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHy-Z2-2l7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Tom-2H-qK3">
+                    <connections>
+                        <outlet property="delegate" destination="PGD-t5-tP0" id="JN9-rf-H6Y"/>
+                        <outlet property="searchContentsController" destination="PGD-t5-tP0" id="dMt-S2-Kzq"/>
+                        <outlet property="searchResultsDataSource" destination="PGD-t5-tP0" id="5Oh-bc-3BA"/>
+                        <outlet property="searchResultsDelegate" destination="PGD-t5-tP0" id="Wji-Td-pGo"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1455" y="949"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NXA-RD-oUz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="25e-NV-HBS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UVu-N6-rui">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uVV-em-4Ue"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wyu-l2-4Ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="949"/>
         </scene>
     </scenes>
 </document>
